@@ -1,0 +1,5 @@
+.DS*
+.vs*
+
+GhostGen/bin
+GhostGen/obj
