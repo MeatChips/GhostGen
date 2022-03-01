@@ -6,24 +6,23 @@ namespace GhostGen
 {
 	class Scene
 	{
-		private List<Node> nodes;
+		private List<Entity> entities;
 
 		public Scene()
 		{
-			nodes = new List<Node> ();
-			Console.WriteLine("Scene ctor");
+			entities = new List<Entity> ();
 		}
 
-		public void AddNode(Node n)
-		{ 
-			nodes.Add (n);
+		public void AddNode(Entity n)
+		{
+			entities.Add (n);
 		}
 
 		public void UpdateScene(float deltaTime)
 		{
-			for (int i = 0; i < nodes.Count; i++)
+			for (int i = 0; i < entities.Count; i++)
 			{
-				nodes[i].Update(deltaTime);
+				entities[i].Update(deltaTime);
 			}
 		}
 	}

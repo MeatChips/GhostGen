@@ -31,7 +31,7 @@ namespace GhostGen
 			// Update (and Draw) all nodes in the Scene
 			scene.UpdateScene(deltaTime);
 
-				// Raylib.DrawFPS(12, 12);
+				Raylib.DrawFPS(12, 12);
 			Raylib.EndDrawing();
 
 			return true;

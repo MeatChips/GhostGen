@@ -6,8 +6,7 @@ namespace GhostGen
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello");
-			AsteroidGame game = new AsteroidGame();
+			Game game = new Game();
 			game.Play();
 		}
 	}
