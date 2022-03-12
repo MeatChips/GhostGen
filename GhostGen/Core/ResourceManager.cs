@@ -7,7 +7,7 @@ namespace GhostGen
 	public sealed class ResourceManager
 	{
 		private static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
-		private static readonly ResourceManager instance = new ResourceManager();
+		private static readonly ResourceManager RM = new ResourceManager();
 
 		// Explicit static constructor to tell C# compiler
 		// not to mark type as beforefieldinit
@@ -23,7 +23,7 @@ namespace GhostGen
 		{
 			get
 			{
-				return instance;
+				return RM;
 			}
 		}
 
