@@ -12,7 +12,7 @@ namespace GhostGen
 			Raylib.InitWindow(width, height, title);
 		}
 
-		public bool Run(Scene scene)
+		public bool Run(SceneNode scene)
 		{
 			if (Raylib.WindowShouldClose())
 			{
@@ -26,10 +26,10 @@ namespace GhostGen
 
 			// draw the scene
 			Raylib.BeginDrawing();
-				Raylib.ClearBackground(Color.BLACK);
+				Raylib.ClearBackground(Color.WHITE);
 
 			// Update (and Draw) all nodes in the Scene
-			scene.UpdateScene(deltaTime);
+			scene.UpdateNode(deltaTime);
 
 				Raylib.DrawFPS(12, 12);
 			Raylib.EndDrawing();

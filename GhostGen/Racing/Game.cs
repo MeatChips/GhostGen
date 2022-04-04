@@ -7,23 +7,18 @@ namespace GhostGen
     class Game
     {
         private Core core;
-        private Scene scene;
+        private GameScene currentScene;
 
         public Game()
         {
-            core = new Core("GhostGen");
+            core = new Core("GhostGen - Racing Game");
 
-            scene = new Scene();
-
-            Entity ImagePNG = new Entity("resources/victory.png");
-            ImagePNG.Position = new Vector2((int)Settings.ScreenSize.X / 2, (int)Settings.ScreenSize.Y / 2);
-
-            scene.AddNode(ImagePNG);
+            currentScene = new GameScene();
         }
 
         public void Play()
         {
-            while (core.Run(scene))
+            while (core.Run(currentScene))
             {
                 ;
             }
