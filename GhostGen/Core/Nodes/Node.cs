@@ -20,9 +20,9 @@ namespace GhostGen
         }
 
         // Transform
-        private Vector2 position;
-        private float rotation;
-        private Vector2 scale;
+        public Vector2 position;
+        public float rotation;
+        public Vector2 scale;
 
         public Vector2 Position
         {

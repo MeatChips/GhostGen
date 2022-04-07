@@ -6,7 +6,7 @@ namespace GhostGen
 {
     class MoveNode : SpriteNode, IMovable
     {
-		// Implementation of IMovable: Velocity, Acceleration, Mass
+		// Implementation of IMovable: Velocity, Acceleration
 		protected Vector2 velocity;
 		protected Vector2 acceleration;
 
