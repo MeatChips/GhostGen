@@ -9,6 +9,7 @@ namespace GhostGen
         //private float forwardForce;
         private float rotSpeed;
 
+
         public VehicleOne(string name) : base(name)
         {
             Position = new Vector2(640, 35);
@@ -56,6 +57,14 @@ namespace GhostGen
 
             //myentity->position.x += movespeedB * sin(a) * deltaTime;
             //myentity->position.y -= movespeedB * cos(a) * deltaTime;
+        }
+
+        public void goBoost(float deltaTime)
+        {
+            float movespeedF = 100;
+
+            position.X -= movespeedF * (float)Math.Sin(rotation) * deltaTime;
+            position.Y += movespeedF * (float)Math.Cos(rotation) * deltaTime;
         }
     }
 }

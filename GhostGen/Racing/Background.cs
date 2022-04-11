@@ -4,7 +4,7 @@ using Raylib_cs; // Texture2D
 
 namespace GhostGen
 {
-    class Background : SpriteNode
+    class Background : MoveNode
     {
         public Background(string name) : base(name)
         {

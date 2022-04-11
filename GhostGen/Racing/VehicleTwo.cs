@@ -53,6 +53,14 @@ namespace GhostGen
             //myentity->position.x += movespeedB * sin(a) * deltaTime;
             //myentity->position.y -= movespeedB * cos(a) * deltaTime;
         }
+
+        public void goBoost(float deltaTime)
+        {
+            float movespeedF = 100;
+
+            position.X -= movespeedF * (float)Math.Sin(rotation) * deltaTime;
+            position.Y += movespeedF * (float)Math.Cos(rotation) * deltaTime;
+        }
     }
 }
 

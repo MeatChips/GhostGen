@@ -2,6 +2,7 @@
 using System.Numerics; // Vector2
 using System.Collections.Generic; // List
 using Raylib_cs; // Raylib
+using System.Timers;
 
 namespace GhostGen
 {
@@ -11,10 +12,13 @@ namespace GhostGen
         {
             Reload();
         }
-        
+
         private VehicleTwo player1;
         private VehicleOne player2;
         private Background racingField;
+
+
+        private float timer; // field
 
         public void Reload()
         {
@@ -32,6 +36,19 @@ namespace GhostGen
         {
             InputPlayer1(deltaTime);
             InputPlayer2(deltaTime);
+
+            timer += deltaTime;
+            if (timer > 10.0f)
+            {
+                Console.WriteLine("Timer is 10");
+                player1.goBoost(deltaTime); // do whatever you need to do every 30 seconds
+                player2.goBoost(deltaTime); // do whatever you need to do every 30 seconds
+                timer = 0.0f;
+                if (timer == 0.0f)
+                {
+                    Console.WriteLine("Timer is 0");
+                }
+            }
         }
 
         public void InputPlayer1(float deltaTime)
@@ -51,9 +68,15 @@ namespace GhostGen
                 player1.GoRight(deltaTime);
             }
 
+
             if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
             {
                 player1.GoBackwards(deltaTime);
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
+            {
+                player1.goBoost(deltaTime);
             }
         }
 
@@ -77,6 +100,11 @@ namespace GhostGen
             if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
             {
                 player2.GoBackwards(deltaTime);
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT_SHIFT))
+            {
+                player2.goBoost(deltaTime);
             }
         }
 
