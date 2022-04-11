@@ -13,8 +13,8 @@ namespace GhostGen
             Reload();
         }
 
-        private VehicleTwo player1;
-        private VehicleOne player2;
+        private Vehicle player1;
+        private Vehicle player2;
         private Background racingField;
 
 
@@ -25,10 +25,10 @@ namespace GhostGen
             racingField = new Background("resources/RacingField.png");
             AddChild(racingField);
 
-            player1 = new VehicleTwo("resources/RedRocket2.png");
+            player1 = new Vehicle("resources/RedRocket2.png");
             AddChild(player1);
 
-            player2 = new VehicleOne("resources/PurpleRocket2.png");
+            player2 = new Vehicle("resources/PurpleRocket2.png");
             AddChild(player2);
         }
 
@@ -37,18 +37,18 @@ namespace GhostGen
             InputPlayer1(deltaTime);
             InputPlayer2(deltaTime);
 
-            timer += deltaTime;
-            if (timer > 10.0f)
-            {
-                Console.WriteLine("Timer is 10");
-                player1.goBoost(deltaTime); // do whatever you need to do every 30 seconds
-                player2.goBoost(deltaTime); // do whatever you need to do every 30 seconds
-                timer = 0.0f;
-                if (timer == 0.0f)
-                {
-                    Console.WriteLine("Timer is 0");
-                }
-            }
+            // timer += deltaTime;
+            // if (timer > 10.0f)
+            // {
+            //     Console.WriteLine("Timer is 10");
+            //     player1.goBoost(deltaTime); // do whatever you need to do every 30 seconds
+            //     player2.goBoost(deltaTime); // do whatever you need to do every 30 seconds
+            //     timer = 0.0f;
+            //     if (timer == 0.0f)
+            //     {
+            //         Console.WriteLine("Timer is 0");
+            //     }
+            // }
         }
 
         public void InputPlayer1(float deltaTime)

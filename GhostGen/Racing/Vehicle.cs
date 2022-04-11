@@ -4,13 +4,19 @@ using Raylib_cs; // Texture2D
 
 namespace GhostGen
 {
-    class VehicleOne : MoveNode
+    class Vehicle : MoveNode
     {
         //private float forwardForce;
         private float rotSpeed;
 
+        float boost_time;
+        float idle_time;
+        float boost_timer;
+        float idle_timer;
+        bool boostable;
 
-        public VehicleOne(string name) : base(name)
+
+        public Vehicle(string name) : base(name)
         {
             Position = new Vector2(640, 35);
             Pivot = new Vector2(0.5f, 0.5f);
@@ -18,6 +24,13 @@ namespace GhostGen
 
             //forwardForce = 10;
             rotSpeed = (float)Math.PI;
+
+            boost_time = 5.0f;
+            idle_time = 3.0f;
+
+            boost_timer = 0.0f;
+            idle_timer = 0.0f;
+            boostable = true;
         }
 
         public override void Update(float deltaTime) // override implementation of MoverNode.Update()
@@ -63,8 +76,31 @@ namespace GhostGen
         {
             float movespeedF = 100;
 
-            position.X -= movespeedF * (float)Math.Sin(rotation) * deltaTime;
-            position.Y += movespeedF * (float)Math.Cos(rotation) * deltaTime;
+            if (boostable)
+            {
+                boost_timer += deltaTime;
+                position.X -= movespeedF * (float)Math.Sin(rotation) * deltaTime;
+                position.Y += movespeedF * (float)Math.Cos(rotation) * deltaTime;
+
+                if (boost_timer >= boost_time)
+                {
+                    boostable = false;
+                    boost_timer = 0.0f;
+                    Console.WriteLine("boost time up");
+                }
+            }
+            else
+            {
+                idle_timer += deltaTime;
+                if (idle_timer >= idle_time)
+                {
+                    boostable = true;
+                    idle_timer = 0.0f;
+                    Console.WriteLine("we can boost again");
+                }
+            }
+
+
         }
     }
 }
