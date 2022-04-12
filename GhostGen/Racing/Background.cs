@@ -8,7 +8,7 @@ namespace GhostGen
     {
         public Background(string name) : base(name)
         {
-            Position = new Vector2(640, 360);
+            
         }
 
         public override void Update(float deltaTime) // override implementation of MoverNode.Update()

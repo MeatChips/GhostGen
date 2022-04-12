@@ -6,30 +6,39 @@ namespace GhostGen
 {
     class Vehicle : MoveNode
     {
-        //private float forwardForce;
+        // Rotation
         private float rotSpeed;
 
+        // Time
         float boost_time;
         float idle_time;
+
+        // Timer
         float boost_timer;
         float idle_timer;
-        bool boostable;
+
+        // Bool
+        public static bool boostable;
 
 
         public Vehicle(string name) : base(name)
         {
+            // Position/Pivot/Scale/Rotation
             Position = new Vector2(640, 35);
             Pivot = new Vector2(0.5f, 0.5f);
-            //Scale = new Vector2(.5f, .5f);
 
-            //forwardForce = 10;
+            // Rotation
             rotSpeed = (float)Math.PI;
 
+            // Time
             boost_time = 5.0f;
-            idle_time = 3.0f;
+            idle_time = 5.0f;
 
+            // Timer
             boost_timer = 0.0f;
             idle_timer = 0.0f;
+
+            // Bool
             boostable = true;
         }
 
@@ -41,14 +50,11 @@ namespace GhostGen
 
         public void GoForward(float deltaTime)
         {
+            // Variables
             float movespeedF = 100;
 
             position.X -= movespeedF * (float)Math.Sin(rotation) * deltaTime;
             position.Y += movespeedF * (float)Math.Cos(rotation) * deltaTime;
-
-            //myentity->position.x -= movespeedF * sin(a) * deltaTime;
-            //myentity->position.y += movespeedF * cos(a) * deltaTime;
-
         }
 
         public void GoLeft(float deltaTime)
@@ -63,13 +69,11 @@ namespace GhostGen
 
         public void GoBackwards(float deltaTime)
         {
+            // Variables
             float movespeedB = 50;
 
             position.X += movespeedB * (float)Math.Sin(rotation) * deltaTime;
             position.Y -= movespeedB * (float)Math.Cos(rotation) * deltaTime;
-
-            //myentity->position.x += movespeedB * sin(a) * deltaTime;
-            //myentity->position.y -= movespeedB * cos(a) * deltaTime;
         }
 
         public void goBoost(float deltaTime)
